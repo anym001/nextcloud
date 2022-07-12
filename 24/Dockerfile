@@ -2,26 +2,23 @@
 
 FROM nextcloud:24-apache
 
-RUN apt update \
+RUN apt-get update \
   && apt-get install -y wget gnupg2 unzip
 
 # Install ffmpeg for video conversion
-RUN apt-get update \
-  && apt-get install -y ffmpeg
+RUN apt-get install -y ffmpeg
 
 # Install libmagickcore for svg compatibility
-RUN apt-get update \
-  && apt-get install -y libmagickcore-6.q16-6-extra
+RUN apt-get install -y libmagickcore-6.q16-6-extra
 
 # Install bzip2 needed to extract models
-
 RUN apt-get install -y libbz2-dev
 RUN docker-php-ext-install bz2
 
 # Enable repo and install dlib
 RUN echo "deb https://repo.delellis.com.ar bullseye bullseye" > /etc/apt/sources.list.d/20-pdlib.list \
   && wget -qO - https://repo.delellis.com.ar/repo.gpg.key | apt-key add -
-RUN apt update \
+RUN apt-get update \
   && apt-get install -y libdlib-dev
 
 # Install pdlib extension

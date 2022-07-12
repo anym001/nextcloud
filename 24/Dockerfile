@@ -2,7 +2,7 @@
 
 FROM nextcloud:24-apache
 
-RUN apt update \
+RUN apt update 
   && apt-get install -y wget gnupg2 unzip
 
 # Install ffmpeg for video conversion

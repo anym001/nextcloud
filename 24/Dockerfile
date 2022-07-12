@@ -32,8 +32,8 @@ RUN docker-php-ext-install pdlib-master
 RUN echo memory_limit=4096M > /usr/local/etc/php/conf.d/z-memory-limit.ini
 
 # These last lines are just for testing the extension.. You can delete them.
-RUN wget https://github.com/matiasdelellis/pdlib-min-test-suite/archive/master.zip \
-  && unzip -d /tmp/ master.zip \
-  && rm master.zip
-RUN cd /tmp/pdlib-min-test-suite-master \
-    && make
+#RUN wget https://github.com/matiasdelellis/pdlib-min-test-suite/archive/master.zip \
+#  && unzip -d /tmp/ master.zip \
+#  && rm master.zip
+#RUN cd /tmp/pdlib-min-test-suite-master \
+#    && make

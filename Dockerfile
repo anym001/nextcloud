@@ -29,3 +29,9 @@ RUN docker-php-ext-install pdlib-master
 # Increase memory limit
 ENV MEMORY_LIMIT="4096M"
 RUN echo memory_limit=${MEMORY_LIMIT} > /usr/local/etc/php/conf.d/z-memory-limit.ini
+
+ADD /scripts/ /opt/scripts/
+RUN chmod -R 770 /opt/scripts/
+
+#Server Start
+ENTRYPOINT ["/opt/scripts/start.sh"]

@@ -1,3 +1,4 @@
+#!/bin/bash
 if [ -z "${MEMORY_LIMIT}" ]; 
 then
     MEMORY_LIMIT="1024M"

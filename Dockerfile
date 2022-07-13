@@ -1,9 +1,7 @@
-### Dockerfile
-
 FROM nextcloud:24-apache
 
 RUN apt-get update \
-  && apt-get install -y wget gnupg2 unzip
+  && apt-get install -y wget gnupg2 unzip nano
 
 # Install ffmpeg for video conversion
 RUN apt-get install -y ffmpeg
@@ -29,6 +27,6 @@ RUN wget https://github.com/goodspb/pdlib/archive/master.zip \
 RUN docker-php-ext-install pdlib-master
 
 # Increase memory limit
-ARG MEMORY_LIMIT_DEF=1024M
+ARG MEMORY_LIMIT_DEF="1024M"
 ENV MEMORY_LIMIT=${MEMORY_LIMIT_DEF}
 RUN echo memory_limit=${MEMORY_LIMIT} > /usr/local/etc/php/conf.d/z-memory-limit.ini

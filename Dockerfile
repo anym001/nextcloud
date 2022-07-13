@@ -27,6 +27,5 @@ RUN wget https://github.com/goodspb/pdlib/archive/master.zip \
 RUN docker-php-ext-install pdlib-master
 
 # Increase memory limit
-ARG MEMORY_LIMIT_DEF="1024M"
-ENV MEMORY_LIMIT=${MEMORY_LIMIT_DEF}
+ENV MEMORY_LIMIT="1024M"
 RUN echo memory_limit=${MEMORY_LIMIT} > /usr/local/etc/php/conf.d/z-memory-limit.ini
